@@ -2,10 +2,6 @@
 - hosts: webhosts
   become: True
   tasks:
-  - name: reboot tomcat8
-    service:
-       name: tomcat8
-       state: disabled
   - name: uninstall tomcat8
     apt:
       name: tomcat8
