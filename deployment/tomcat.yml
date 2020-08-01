@@ -4,16 +4,16 @@
   tasks:
   - name: Install java-webserver
     apt:
-      name: tomcat8
+      name: tomcat9
       state: present
-  - name: Start tomcat8
+  - name: Start tomcat9
     service:
-      name: tomcat8
+      name: tomcat9
       state: started
       enabled: True
   - name: Remove default ROOT app
     file: 
-      path: /var/lib/tomcat8/webapps/ROOT/
+      path: /var/lib/tomcat9/webapps/ROOT/
       state: absent
   - name: Deploy the WAR file
     copy: 
