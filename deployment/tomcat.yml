@@ -2,6 +2,14 @@
 - hosts: webhosts
   become: True
   tasks:
+  - name: reboot tomcat8
+    service:
+       name: tomcat8
+       state: disabled
+  - name: uninstall tomcat8
+    apt:
+      name: tomcat8
+      state: absent
   - name: Install java-webserver
     apt:
       name: tomcat9
@@ -18,5 +26,4 @@
   - name: Deploy the WAR file
     copy: 
       src: ../app/target/ROOT.war
-      dest: /var/lib/tomcat8/webapps/
-
+      dest: /var/lib/tomcat9/webapps/
